@@ -25,7 +25,7 @@
 ✅ 轻量部署：基于 SQLite，无需额外配置数据库服务
 
 ## 快速开始
-1. 克隆项目：`git clone [你的仓库地址]`
+1. 克隆项目：`git clone [(https://github.com/shusheng-gege/personal-blog.git)]`
 2. 安装依赖：`pip install fastapi uvicorn python-multipart`
 3. 启动服务：`uvicorn main:app --reload`
 4. 访问接口文档：`http://127.0.0.1:8000/docs`
