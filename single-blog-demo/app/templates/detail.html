@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if article %}{{ article.title }}{% else %}文章不存在{% endif %}</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/">单人博客 Demo</a>
+    <nav>
+      <a href="/">首页</a>
+      <a href="/admin/articles">后台管理</a>
+    </nav>
+  </header>
+
+  <main class="container article-detail">
+    {% if article %}
+      <h1>{{ article.title }}</h1>
+      <p class="meta">发布于 {{ article.created_at }}，更新于 {{ article.updated_at }}</p>
+
+      <!--
+        正文是 Quill 编辑器生成的 HTML。
+        这里使用 safe，告诉 Jinja2 不要把 HTML 标签转义成普通文本。
+        课堂提醒：真实产品中要做 HTML 清洗，避免 XSS。
+      -->
+      <div class="content">{{ article.content | safe }}</div>
+    {% else %}
+      <h1>文章不存在</h1>
+      <p>你访问的文章可能已经被删除。</p>
+    {% endif %}
+  </main>
+</body>
+</html>
